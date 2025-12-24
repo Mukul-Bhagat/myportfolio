@@ -14,13 +14,22 @@ body {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: #0f172a;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #334155;
   border-radius: 5px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
+}
+
+/* Custom Utilities */
+.mask-image-gradient {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
