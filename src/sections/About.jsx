@@ -31,8 +31,8 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
-                        <span className="w-12 h-1 bg-purple-500 rounded-full"></span>
-                        About Me
+                        <span className="w-12 h-1 bg-blue-500 rounded-full"></span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600">About Me</span>
                     </h2>
                     <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
                         <p>
