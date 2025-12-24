@@ -24,62 +24,65 @@ export default function Hero() {
             {/* =========================================
           MOBILE LAYOUT (< md)
          ========================================= */}
-            <div className="block md:hidden relative z-10 w-full px-6 pt-6 pb-12 flex flex-col items-center">
+            <div className="block md:hidden relative z-10 w-full px-6 pt-6 pb-12 flex flex-col items-center min-h-screen justify-center">
 
                 {/* 1. TOP BAR LEFT LOGO */}
-                <div className="w-full flex justify-start mb-8">
+                <div className="absolute top-6 left-6 w-full flex justify-start mb-8">
                     <a href="/">
                         <img src={logo} alt="Logo" className="w-16 h-16 object-contain" />
                     </a>
                 </div>
 
-                {/* 2. SOCIAL ICONS (Horizontal) */}
-                <div className="flex items-center justify-center gap-6 mb-8 w-full">
-                    {socialLinks.map((social, idx) => (
-                        <a
-                            key={idx}
-                            href={social.href}
-                            className="text-slate-400 p-2 active:scale-95 transition-transform"
-                        >
-                            <social.icon size={24} />
+                {/* 3. NAME & HEADER START (Pushed down slightly) */}
+                <div className="mt-20 flex flex-col items-center w-full">
+                    {/* 2. SOCIAL ICONS (Horizontal) */}
+                    <div className="flex items-center justify-center gap-6 mb-8 w-full">
+                        {socialLinks.map((social, idx) => (
+                            <a
+                                key={idx}
+                                href={social.href}
+                                className="text-slate-400 p-2 active:scale-95 transition-transform"
+                            >
+                                <social.icon size={24} />
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* 3. NAME */}
+                    <h1 className="text-5xl font-light text-white tracking-tight text-center mb-2">
+                        Mukul Bhagat
+                    </h1>
+
+                    {/* 4. ROLE */}
+                    <p className="text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 text-center mb-8">
+                        Full Stack Developer | Cloud & DevOps Trainee
+                    </p>
+
+                    {/* 5. IMAGE (Centered) */}
+                    <div className="relative w-full max-w-[320px] mb-8">
+                        <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl -z-10" />
+                        <img
+                            src={profilePic}
+                            alt="Mukul S. Bhagat"
+                            className="w-full h-auto object-contain"
+                            style={{ filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
+                        />
+                    </div>
+
+                    {/* 6. DESCRIPTION */}
+                    <p className="text-slate-400 text-base leading-relaxed text-center max-w-sm mb-8">
+                        An aspiring software developer with hands-on experience in mobile applications, full-stack web development, and cloud-native systems. I focus on building scalable, clean, and efficient solutions.
+                    </p>
+
+                    {/* 7. BUTTONS */}
+                    <div className="flex flex-col sm:flex-row w-full justify-center gap-4">
+                        <a href="#projects" className="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-base font-medium shadow-lg text-center hover:opacity-90 active:scale-95 transition-all">
+                            View Projects
                         </a>
-                    ))}
-                </div>
-
-                {/* 3. NAME */}
-                <h1 className="text-5xl font-light text-white tracking-tight text-center mb-2">
-                    Mukul Bhagat
-                </h1>
-
-                {/* 4. ROLE */}
-                <p className="text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 text-center mb-8">
-                    Full Stack Developer | Cloud & DevOps Trainee
-                </p>
-
-                {/* 5. IMAGE (Centered) */}
-                <div className="relative w-full max-w-[320px] mb-8">
-                    <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl -z-10" />
-                    <img
-                        src={profilePic}
-                        alt="Mukul S. Bhagat"
-                        className="w-full h-auto object-contain"
-                        style={{ filter: "contrast(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
-                    />
-                </div>
-
-                {/* 6. DESCRIPTION */}
-                <p className="text-slate-400 text-base leading-relaxed text-center max-w-sm mb-8">
-                    An aspiring software developer with hands-on experience in mobile applications, full-stack web development, and cloud-native systems. I focus on building scalable, clean, and efficient solutions.
-                </p>
-
-                {/* 7. BUTTONS */}
-                <div className="flex flex-row w-full justify-center gap-4">
-                    <a href="#projects" className="flex-1 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-medium shadow-lg text-center hover:opacity-90 active:scale-95 transition-all">
-                        View Projects
-                    </a>
-                    <a href="#contact" className="flex-1 py-3 rounded-lg border border-slate-700 text-slate-300 text-sm font-medium text-center hover:bg-white/5 active:scale-95 transition-all">
-                        Get In Touch
-                    </a>
+                        <a href="#contact" className="w-full sm:w-auto px-10 py-4 rounded-full border border-slate-700 text-slate-300 text-base font-medium text-center hover:bg-white/5 active:scale-95 transition-all">
+                            Get In Touch
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -87,7 +90,7 @@ export default function Hero() {
             {/* =========================================
           DESKTOP LAYOUT (>= md)
          ========================================= */}
-            <div className="hidden md:flex relative w-full min-h-screen items-center py-20 lg:py-0">
+            <div className="hidden md:flex relative w-full min-h-screen items-center">
 
                 {/* HEADER: Social Icons Top Right */}
                 <header className="absolute top-0 right-0 p-8 z-50 flex items-center gap-8">
@@ -132,10 +135,10 @@ export default function Hero() {
                             </p>
 
                             <div className="flex flex-row gap-4 pt-4">
-                                <a href="#projects" className="px-8 py-3 rounded-lg bg-gradient-to-r from-purple-700 to-indigo-700 text-white text-base font-medium shadow-md hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300">
+                                <a href="#projects" className="px-10 py-4 rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 text-white text-base font-medium shadow-md hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300">
                                     View Projects
                                 </a>
-                                <a href="#contact" className="px-8 py-3 rounded-lg border border-slate-700 text-slate-300 text-base font-medium hover:bg-white/5 hover:border-slate-500 hover:text-white transition-all duration-300">
+                                <a href="#contact" className="px-10 py-4 rounded-full border border-slate-700 text-slate-300 text-base font-medium hover:bg-white/5 hover:border-slate-500 hover:text-white transition-all duration-300">
                                     Get In Touch
                                 </a>
                             </div>
@@ -172,7 +175,7 @@ export default function Hero() {
                                 alt="Mukul S. Bhagat"
                                 className="w-full h-auto object-contain z-10 relative"
                                 style={{
-                                    filter: "contrast(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
+                                    filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
                                     width: '600px',
                                     maxWidth: 'none'
                                 }}
