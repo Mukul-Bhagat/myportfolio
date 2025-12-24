@@ -45,17 +45,17 @@ export default function Certifications() {
     const [selectedCert, setSelectedCert] = useState(null);
 
     return (
-        <section id="certifications" className="py-24 relative overflow-hidden bg-slate-950">
+        <section id="certifications" className="py-16 relative overflow-hidden bg-slate-950">
             {/* Ambient Background */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-bold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600"
+                    className="text-3xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600"
                 >
                     Main Certifications
                 </motion.h2>
@@ -65,10 +65,10 @@ export default function Certifications() {
                     {certifications.map((cert, index) => (
                         <motion.div
                             key={cert.id}
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.1, duration: 0.6 }}
                             onClick={() => setSelectedCert(cert)}
                             className="min-w-[300px] md:min-w-[350px] aspect-[16/10] bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20 group relative snap-center"
                         >

@@ -37,16 +37,30 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-24 bg-slate-950">
+        <section id="projects" className="py-16 bg-slate-950">
             <div className="max-w-6xl mx-auto px-6">
-                <div className="text-center mb-24">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600">Featured Projects</h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                <div className="text-center mb-12">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600"
+                    >
+                        Featured Projects
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="text-slate-400 text-lg max-w-2xl mx-auto"
+                    >
                         Some of my best work, built with modern tech stacks.
-                    </p>
+                    </motion.p>
                 </div>
 
-                <div className="flex flex-col gap-20">
+                <div className="flex flex-col gap-12">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}

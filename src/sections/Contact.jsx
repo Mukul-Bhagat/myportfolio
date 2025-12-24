@@ -25,17 +25,24 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-20">
+        <section id="contact" className="py-16">
             <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-                    <p className="text-slate-400 mb-8">If you want contact me</p>
-                </div>
-
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-12"
+                >
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+                    <p className="text-slate-400 mb-8">If you want contact me</p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                     className="bg-slate-900/50 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-slate-800 shadow-xl"
                 >
                     <form className="space-y-6" onSubmit={handleSubmit}>
