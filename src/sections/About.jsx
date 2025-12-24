@@ -36,10 +36,10 @@ export default function About() {
                     </h2>
                     <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
                         <p>
-                            An aspiring Software Developer with hands-on experience in  <strong className="text-purple-400"> Full-Stack Web applications, Native Mobile Apps, AI-powered solutions</strong> and modern <strong className="text-purple-400">DevOps</strong> tools.
+                            An aspiring Software Developer with hands-on experience in  <strong className="text-purple-400"> Full-Stack Web applications, Native Mobile Apps, AI-powered solutions</strong> and modern <strong className="text-purple-400">DevOps</strong> tools and I thrive on managing the full development lifecycle—from concept to deployment
                         </p>
                         <p>
-                            When I’m not debugging or designing architectures, you can find me traveling to new places or focusing on fitness. I approach every project with the same energy I bring to my workouts and adventures: with discipline, creativity, and a drive to constantly improve.
+                            Beyond the screen, I am fueled by a love for fitness and travel. Whether I’m pushing my limits in the gym or exploring new destinations, I bring that same adventurous and disciplined mindset to my code. I believe that exploring the world unlocks creativity, and staying fit builds the resilience needed to solve complex technical challenges. I’m always looking for the next problem to solve and the next place to explore.
                         </p>
                     </div>
 
