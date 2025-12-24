@@ -12,14 +12,8 @@ const socialLinks = [
 
 export default function Hero() {
     return (
-        <section className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-[#0a0a0a] to-[#0f0518]">
+        <section className="relative w-full min-h-screen overflow-hidden">
 
-            {/* GLOBAL BACKGROUND LAYERS (Visible on all sizes) */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-indigo-900/10 rounded-full blur-[120px] mix-blend-screen" />
-                <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-purple-900/5 rounded-full blur-[100px]" />
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay" />
-            </div>
 
             {/* =========================================
           MOBILE LAYOUT (< md)
@@ -65,7 +59,7 @@ export default function Hero() {
                             src={profilePic}
                             alt="Mukul S. Bhagat"
                             className="w-full h-auto object-contain"
-                            style={{ filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
+                            style={{ filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
                         />
                     </div>
 
@@ -76,10 +70,10 @@ export default function Hero() {
 
                     {/* 7. BUTTONS */}
                     <div className="flex flex-col sm:flex-row w-full justify-center gap-4">
-                        <a href="#projects" className="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-base font-medium shadow-lg text-center hover:opacity-90 active:scale-95 transition-all">
+                        <a href="#projects" className="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-base font-medium shadow-lg hover:shadow-purple-500/30 text-center hover:opacity-90 active:scale-95 transition-all">
                             View Projects
                         </a>
-                        <a href="#contact" className="w-full sm:w-auto px-10 py-4 rounded-full border border-slate-700 text-slate-300 text-base font-medium text-center hover:bg-white/5 active:scale-95 transition-all">
+                        <a href="#contact" className="w-full sm:w-auto px-10 py-4 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-base font-medium text-center hover:bg-slate-800 hover:text-white hover:border-slate-500 active:scale-95 transition-all">
                             Get In Touch
                         </a>
                     </div>
@@ -135,10 +129,10 @@ export default function Hero() {
                             </p>
 
                             <div className="flex flex-row gap-4 pt-4">
-                                <a href="#projects" className="px-10 py-4 rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 text-white text-base font-medium shadow-md hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300">
+                                <a href="#projects" className="px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-base font-medium shadow-md hover:shadow-purple-500/30 hover:scale-[1.02] transition-all duration-300">
                                     View Projects
                                 </a>
-                                <a href="#contact" className="px-10 py-4 rounded-full border border-slate-700 text-slate-300 text-base font-medium hover:bg-white/5 hover:border-slate-500 hover:text-white transition-all duration-300">
+                                <a href="#contact" className="px-10 py-4 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-base font-medium hover:bg-slate-800 hover:text-white hover:border-slate-500 transition-all duration-300">
                                     Get In Touch
                                 </a>
                             </div>
@@ -175,7 +169,7 @@ export default function Hero() {
                                 alt="Mukul S. Bhagat"
                                 className="w-full h-auto object-contain z-10 relative"
                                 style={{
-                                    filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
+                                    filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
                                     width: '600px',
                                     maxWidth: 'none'
                                 }}

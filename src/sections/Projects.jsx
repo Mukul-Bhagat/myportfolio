@@ -37,7 +37,7 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-16 bg-slate-950">
+        <section id="projects" className="py-16">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="text-center mb-12">
                     <motion.h2
@@ -101,10 +101,10 @@ export default function Projects() {
                                 </div>
 
                                 <div className="flex gap-4">
-                                    <a href="#" className="flex-1 py-4 rounded-xl bg-slate-800 text-white font-bold flex items-center justify-center gap-2 hover:bg-slate-700 hover:scale-[1.02] transition-all">
+                                    <a href="#" className="flex-1 py-4 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 font-bold flex items-center justify-center gap-2 hover:bg-slate-800 hover:text-white hover:border-slate-500 hover:scale-[1.03] transition-all duration-300">
                                         <Github size={20} /> Code
                                     </a>
-                                    <a href="#" className="flex-1 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-purple-500/20">
+                                    <a href="#" className="flex-1 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-purple-500/30 hover:brightness-110 hover:scale-[1.03] transition-all duration-300 shadow-lg shadow-purple-500/20">
                                         Live Demo <ExternalLink size={20} />
                                     </a>
                                 </div>

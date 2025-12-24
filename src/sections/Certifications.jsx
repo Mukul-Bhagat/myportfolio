@@ -45,17 +45,14 @@ export default function Certifications() {
     const [selectedCert, setSelectedCert] = useState(null);
 
     return (
-        <section id="certifications" className="py-16 relative overflow-hidden bg-slate-950">
-            {/* Ambient Background */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
+        <section id="certifications" className="py-16 relative overflow-hidden">
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600"
+                    className="text-3xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-700"
                 >
                     Main Certifications
                 </motion.h2>

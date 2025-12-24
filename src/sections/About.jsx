@@ -5,6 +5,18 @@ import travelPic from '../assets/travelpic.jpg'
 export default function About() {
     return (
         <section id="about" className="pt-20 pb-0 mb-0 relative">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-12"
+            >
+                <h2 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 inline-block">
+                    About Me
+                </h2>
+            </motion.div>
+
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -30,16 +42,15 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
-                        <span className="w-12 h-1 bg-blue-500 rounded-full"></span>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600">About Me</span>
-                    </h2>
                     <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
                         <p>
                             An aspiring Software Developer with hands-on experience in  <strong className="text-purple-400"> Full-Stack Web applications, Native Mobile Apps, AI-powered solutions</strong> and modern <strong className="text-purple-400">DevOps</strong> tools and I thrive on managing the full development lifecycle—from concept to deployment
                         </p>
                         <p>
-                            Beyond the screen, I am fueled by a love for fitness and travel. Whether I’m pushing my limits in the gym or exploring new destinations, I bring that same adventurous and disciplined mindset to my code. I believe that exploring the world unlocks creativity, and staying fit builds the resilience needed to solve complex technical challenges. I’m always looking for the next problem to solve and the next place to explore.
+                            Whether I’m pushing my limits in the gym or exploring new destinations, I bring that same adventurous and disciplined mindset to my code. I view fitness as a physical algorithm: consistent effort yields measurable results.
+                        </p>
+                        <p>
+                            Similarly, travel is my source of creativity. Exploring the world unlocks new perspectives, helping me think outside the box when I return to my desk. I am always looking for the next problem to solve and the next place to explore.
                         </p>
                     </div>
 
