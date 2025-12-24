@@ -31,33 +31,6 @@ function App() {
                 <meta property="twitter:title" content="Mukul Bhagat – Developer Portfolio" />
                 <meta property="twitter:description" content="Full Stack Developer specializing in MERN, Mobile Apps, and Cloud & DevOps." />
                 <meta property="twitter:image" content="https://mukulbhagat.onrender.com/og-image.png" />
-
-                {/* Schema.org Structured Data */}
-                <script type="application/ld+json">
-                    {`
-                        {
-                          "@context": "https://schema.org",
-                          "@type": "Person",
-                          "name": "Mukul Bhagat",
-                          "url": "https://mukulbhagat.onrender.com/",
-                          "image": "https://mukulbhagat.onrender.com/og-image.png",
-                          "jobTitle": "Full Stack Developer | Cloud & DevOps Trainee",
-                          "description": "Full Stack Developer specializing in MERN stack, mobile applications, and cloud-native systems.",
-                          "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Nashik",
-                            "addressRegion": "Maharashtra",
-                            "addressCountry": "India"
-                          },
-                          "sameAs": [
-                            "https://www.linkedin.com/in/mukul-bhagat/",
-                            "https://github.com/Mukul-Bhagat/",
-                            "https://twitter.com/yourusername",
-                            "https://www.instagram.com/mukulbhagat_/"
-                          ]
-                        }
-                    `}
-                </script>
             </Helmet>
 
             {/* FIXED BACKGROUND */}
