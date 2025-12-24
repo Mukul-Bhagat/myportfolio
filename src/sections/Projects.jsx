@@ -21,59 +21,67 @@ const projects = [
 ]
 
 export default function Projects() {
-    const containerRef = useRef(null)
-
     return (
-        <section id="projects" className="py-20 bg-slate-950">
-            <div className="flex justify-between items-end mb-12">
-                <div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Projects</h2>
-                    <p className="text-slate-400">Some of my best work.</p>
+        <section id="projects" className="py-24 bg-slate-950">
+            <div className="max-w-6xl mx-auto px-6">
+                <div className="text-center mb-24">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Featured Projects</h2>
+                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                        Some of my best work, built with modern tech stacks.
+                    </p>
                 </div>
-                {/* Navigation for scroll - could be added here */}
-            </div>
 
-            <div className="overflow-x-auto pb-8 hide-scrollbar snap-x snap-mandatory flex gap-6" ref={containerRef}>
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.2 }}
-                        className="flex-none w-full md:w-[450px] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all duration-300 snap-center group"
-                    >
-                        {/* Small rolling project image placeholder - using gradient area */}
-                        <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
-                            <div className="absolute inset-0 bg-purple-600/10 mix-blend-overlay group-hover:bg-purple-600/20 transition-colors" />
-                            <span className="text-slate-600 font-bold text-lg group-hover:text-purple-300 transition-colors">Project Preview</span>
-                        </div>
-
-                        <div className="p-8">
-                            <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">{project.title}</h3>
-                            <p className="text-slate-400 mb-6 leading-relaxed text-sm h-20 overflow-hidden">
-                                {project.description}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 mb-8">
-                                {project.tech.map((t, i) => (
-                                    <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-300">
-                                        {t}
+                <div className="flex flex-col gap-20">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl hover:border-purple-500/30 transition-all duration-300 md:grid md:grid-cols-2"
+                        >
+                            {/* Image / Preview Section */}
+                            <div className="h-64 md:h-auto bg-slate-800 relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-blue-900/20" />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <span className="text-2xl font-bold text-slate-700 group-hover:text-purple-400/50 transition-colors uppercase tracking-widest">
+                                        Project Preview
                                     </span>
-                                ))}
+                                </div>
+                                {/* Hover Effect Overlay */}
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                             </div>
 
-                            <div className="flex gap-4">
-                                <a href="#" className="flex-1 py-3 rounded-xl bg-slate-800 text-white font-medium flex items-center justify-center gap-2 hover:bg-slate-700 transition-colors">
-                                    <Github size={18} /> Code
-                                </a>
-                                <a href="#" className="flex-1 py-3 rounded-xl bg-purple-600 text-white font-medium flex items-center justify-center gap-2 hover:bg-purple-700 transition-colors">
-                                    Live Demo <ExternalLink size={18} />
-                                </a>
+                            {/* Content Section */}
+                            <div className="p-8 md:p-12 flex flex-col justify-center">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors">
+                                    {project.title}
+                                </h3>
+                                <p className="text-slate-400 mb-8 leading-relaxed text-base md:text-lg">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 mb-10">
+                                    {project.tech.map((t, i) => (
+                                        <span key={i} className="px-3 py-1 text-sm font-medium rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex gap-4">
+                                    <a href="#" className="flex-1 py-4 rounded-xl bg-slate-800 text-white font-bold flex items-center justify-center gap-2 hover:bg-slate-700 hover:scale-[1.02] transition-all">
+                                        <Github size={20} /> Code
+                                    </a>
+                                    <a href="#" className="flex-1 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-purple-500/20">
+                                        Live Demo <ExternalLink size={20} />
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     )

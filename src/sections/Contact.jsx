@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Send } from 'lucide-react'
+import { Send, Mail } from 'lucide-react'
 
 export default function Contact() {
     return (
@@ -7,7 +7,14 @@ export default function Contact() {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-                    <p className="text-slate-400">Have a project in mind? Let's build something together.</p>
+                    <p className="text-slate-400 mb-8">If you want contact me</p>
+
+                    <a
+
+                    >
+                        <Mail className="text-purple-500 group-hover:scale-110 transition-transform" size={20} />
+                        <span className="text-slate-200 group-hover:text-white font-medium">mukulbhagat001@gmail.com</span>
+                    </a>
                 </div>
 
                 <motion.div
@@ -20,17 +27,17 @@ export default function Contact() {
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-slate-300">Name</label>
-                                <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors" placeholder="John Doe" />
+                                <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors" placeholder="Your Name" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-slate-300">Email</label>
-                                <input type="email" className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors" placeholder="john@example.com" />
+                                <input type="email" className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors" placeholder="Your Email" />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-slate-300">Subject</label>
-                            <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors" placeholder="Project Inquiry" />
+                            <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors" placeholder="Your Subject" />
                         </div>
 
                         <div className="space-y-2">
