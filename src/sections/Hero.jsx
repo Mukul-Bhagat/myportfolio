@@ -63,7 +63,7 @@ export default function Hero() {
                         src={profilePic}
                         alt="Mukul S. Bhagat"
                         className="w-full h-auto object-contain"
-                        style={{ filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
+                        style={{ filter: "contrast(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
                     />
                 </div>
 
@@ -151,12 +151,20 @@ export default function Hero() {
                             transition={{ duration: 1.2, ease: "easeOut" }}
                             className="relative w-full max-w-[500px] lg:max-w-[650px] flex flex-col items-center group"
                         >
-                            {/* PURPLE GRADIENT SPOTLIGHT */}
+                            {/* PURPLE & BLUE GRADIENT SPOTLIGHT */}
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-br from-purple-600/30 via-indigo-600/20 to-violet-600/10 rounded-full blur-[80px] -z-10"
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-br from-purple-600/30 via-indigo-600/20 to-blue-500/20 rounded-full blur-[80px] -z-10"
+                            />
+
+                            {/* CENTER BLUE GLOW */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 2.5, ease: "easeOut", delay: 0.1 }}
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[100px] -z-10 mix-blend-screen"
                             />
 
                             <img
@@ -164,7 +172,7 @@ export default function Hero() {
                                 alt="Mukul S. Bhagat"
                                 className="w-full h-auto object-contain z-10 relative"
                                 style={{
-                                    filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
+                                    filter: "contrast(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
                                     width: '600px',
                                     maxWidth: 'none'
                                 }}

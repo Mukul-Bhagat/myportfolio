@@ -1,28 +1,37 @@
-import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { motion } from 'framer-motion'
-import { Send, Mail, MapPin } from 'lucide-react'
+import { Send, Mail, MapPin, CheckCircle } from 'lucide-react'
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
+    const [state, handleSubmit] = useForm("mnjaywvk");
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const { name, email, subject, message } = formData;
-
-        // Construct Mailto Link
-        const mailtoLink = `mailto:mukulbhagat001@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-
-        window.location.href = mailtoLink;
-    };
+    if (state.succeeded) {
+        return (
+            <section id="contact" className="py-16">
+                <div className="max-w-4xl mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="bg-slate-900/50 backdrop-blur-xl p-12 rounded-3xl border border-slate-800 shadow-xl text-center"
+                    >
+                        <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <CheckCircle className="text-green-500" size={40} />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-4">Message Sent!</h3>
+                        <p className="text-slate-400 mb-8 max-w-md mx-auto">
+                            Thanks for reaching out. I'll get back to you at my earliest convenience (typically within 24 hours).
+                        </p>
+                        <button
+                            onClick={() => window.location.reload()}
+                            className="px-8 py-3 rounded-full bg-slate-800 text-white hover:bg-slate-700 transition-colors"
+                        >
+                            Send Another Message
+                        </button>
+                    </motion.div>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section id="contact" className="py-16">
@@ -35,7 +44,7 @@ export default function Contact() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-                    <p className="text-slate-400 mb-8">If you want contact me</p>
+                    <p className="text-slate-400 mb-8">Have a project in mind? Let's build something together.</p>
                 </motion.div>
 
                 <motion.div
@@ -48,38 +57,36 @@ export default function Contact() {
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Name</label>
+                                <label htmlFor="name" className="text-sm font-medium text-slate-300">Name</label>
                                 <input
+                                    id="name"
                                     type="text"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors text-white"
                                     placeholder="Your Name"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Email</label>
+                                <label htmlFor="email" className="text-sm font-medium text-slate-300">Email</label>
                                 <input
+                                    id="email"
                                     type="email"
                                     name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors text-white"
                                     placeholder="Your Email"
                                 />
+                                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm mt-1" />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Subject</label>
+                            <label htmlFor="subject" className="text-sm font-medium text-slate-300">Subject</label>
                             <input
+                                id="subject"
                                 type="text"
                                 name="subject"
-                                value={formData.subject}
-                                onChange={handleChange}
                                 required
                                 className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors text-white"
                                 placeholder="Your Subject"
@@ -87,20 +94,24 @@ export default function Contact() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Message</label>
+                            <label htmlFor="message" className="text-sm font-medium text-slate-300">Message</label>
                             <textarea
+                                id="message"
                                 name="message"
-                                value={formData.message}
-                                onChange={handleChange}
                                 required
                                 rows="4"
                                 className="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors resize-none text-white"
-                                placeholder="You can tell me whatever you feel..."
+                                placeholder="Tell me about your project..."
                             ></textarea>
+                            <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1" />
                         </div>
 
-                        <button type="submit" className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg shadow-purple-500/25">
-                            Send Message <Send size={20} />
+                        <button
+                            type="submit"
+                            disabled={state.submitting}
+                            className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            {state.submitting ? 'Sending...' : 'Send Message'} <Send size={20} />
                         </button>
                     </form>
 
