@@ -11,7 +11,7 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative"
+                    className="relative hidden md:block" // Hidden on mobile, visible on desktop
                 >
                     <div className="aspect-square rounded-2xl overflow-hidden bg-slate-800 relative z-10 border border-slate-700">
                         <img
@@ -41,6 +41,15 @@ export default function About() {
                         <p>
                             When I’m not debugging or designing architectures, you can find me traveling to new places or focusing on fitness. I approach every project with the same energy I bring to my workouts and adventures: with discipline, creativity, and a drive to constantly improve.
                         </p>
+                    </div>
+
+                    {/* MOBILE IMAGE (Visible only on mobile) */}
+                    <div className="block md:hidden w-full aspect-square rounded-2xl overflow-hidden border border-slate-700 my-8">
+                        <img
+                            src={travelPic}
+                            alt="Mukul Travelling"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
 
                     <div className="mt-8">
