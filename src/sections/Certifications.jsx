@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ExternalLink, Award } from 'lucide-react';
+import { ExternalLink, Award, X } from 'lucide-react';
 
 const certifications = [
     {
@@ -8,7 +8,7 @@ const certifications = [
         title: "AWS Certified Cloud Practitioner",
         issuer: "Amazon Web Services",
         date: "2024",
-        description: "Foundational understanding of AWS Cloud concepts, security, and compliance.",
+        description: "Foundational understanding of AWS Cloud concepts, security, compliance, and basic architectural best practices.",
         color: "from-orange-400 to-yellow-500",
         link: "#"
     },
@@ -17,7 +17,7 @@ const certifications = [
         title: "Meta Front-End Developer",
         issuer: "Meta",
         date: "2023",
-        description: "Professional certificate covering React, JavaScript, and modern UI/UX principles.",
+        description: "Professional certificate covering React, JavaScript, modern UI/UX principles, and responsive web design.",
         color: "from-blue-400 to-cyan-400",
         link: "#"
     },
@@ -26,7 +26,7 @@ const certifications = [
         title: "Google UX Design Professional",
         issuer: "Google",
         date: "2023",
-        description: "Comprehensive training in UX research, wireframing, prototyping, and testing.",
+        description: "Comprehensive training in UX research, wireframing, prototyping, and user testing methodologies.",
         color: "from-indigo-400 to-purple-400",
         link: "#"
     },
@@ -35,153 +35,141 @@ const certifications = [
         title: "Docker Certified Associate",
         issuer: "Docker",
         date: "2024",
-        description: "Skills in orchestration, image creation, installation, and security scanning.",
+        description: "Skills in orchestration, image creation, installation, and security scanning for containerized applications.",
         color: "from-blue-500 to-blue-700",
         link: "#"
     }
 ];
 
 export default function Certifications() {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const nextCert = () => {
-        setActiveIndex((prev) => (prev + 1) % certifications.length);
-    };
-
-    const prevCert = () => {
-        setActiveIndex((prev) => (prev - 1 + certifications.length) % certifications.length);
-    };
-
-    const getCertIndex = (offset) => {
-        return (activeIndex + offset + certifications.length) % certifications.length;
-    };
+    const [selectedCert, setSelectedCert] = useState(null);
 
     return (
         <section id="certifications" className="py-24 relative overflow-hidden bg-slate-950">
             {/* Ambient Background */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-bold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-white"
+                    className="text-3xl md:text-5xl font-bold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600"
                 >
                     Main Certifications
                 </motion.h2>
 
-                <div className="relative h-[500px] flex items-center justify-center">
+                {/* Horizontal Scroll / Sliding Layout */}
+                <div className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scroll-smooth no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                    {certifications.map((cert, index) => (
+                        <motion.div
+                            key={cert.id}
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            onClick={() => setSelectedCert(cert)}
+                            className="min-w-[300px] md:min-w-[350px] aspect-[16/10] bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20 group relative snap-center"
+                        >
+                            {/* Certificate Thumbnail Appearance */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
 
-                    {/* Previous Button */}
-                    <button
-                        onClick={prevCert}
-                        className="absolute left-0 md:left-4 z-30 p-3 rounded-full bg-slate-800/50 hover:bg-purple-500 hover:text-white transition-all backdrop-blur-sm border border-slate-700 text-slate-300"
-                    >
-                        <ChevronLeft size={24} />
-                    </button>
+                            <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow-sm text-slate-700 z-10">
+                                <Award size={20} />
+                            </div>
 
-                    {/* Next Button */}
-                    <button
-                        onClick={nextCert}
-                        className="absolute right-0 md:right-4 z-30 p-3 rounded-full bg-slate-800/50 hover:bg-purple-500 hover:text-white transition-all backdrop-blur-sm border border-slate-700 text-slate-300"
-                    >
-                        <ChevronRight size={24} />
-                    </button>
+                            <div className="h-full flex flex-col items-center justify-center p-6 text-center relative z-0">
+                                <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${cert.color} flex items-center justify-center mb-3 text-white shadow-md`}>
+                                    <Award size={28} />
+                                </div>
+                                <h3 className="text-slate-900 font-bold text-lg leading-tight mb-1 group-hover:text-purple-600 transition-colors line-clamp-2">
+                                    {cert.title}
+                                </h3>
+                                <p className="text-slate-500 text-sm font-medium">{cert.issuer}</p>
+                            </div>
 
-                    {/* Carousel Container */}
-                    <div className="relative w-full max-w-5xl h-full flex items-center justify-center perspective-1000">
-                        <AnimatePresence mode="popLayout">
-                            {[-1, 0, 1].map((offset) => {
-                                const index = getCertIndex(offset);
-                                const cert = certifications[index];
-                                const isActive = offset === 0;
-
-                                return (
-                                    <motion.div
-                                        key={`${cert.id}-${offset}`}
-                                        layout
-                                        initial={{
-                                            scale: 0.8,
-                                            x: offset * 100 + '%',
-                                            opacity: 0,
-                                            zIndex: 0
-                                        }}
-                                        animate={{
-                                            scale: isActive ? 1 : 0.85,
-                                            x: offset === 0 ? '0%' : (offset > 0 ? '60%' : '-60%'),
-                                            opacity: isActive ? 1 : 0.4,
-                                            zIndex: isActive ? 20 : 10,
-                                            rotateY: isActive ? 0 : (offset > 0 ? -15 : 15) // Subtle 3D rotation
-                                        }}
-                                        exit={{ scale: 0.8, opacity: 0 }}
-                                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                                        className={`absolute flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50 bg-slate-900 border-opacity-50
-                                            ${isActive ? 'w-full md:w-[800px] h-full z-20 shadow-purple-900/20' : 'w-[300px] md:w-[400px] h-[300px] z-10 blur-[1px]'}`}
-                                    >
-
-                                        {/* Left Side: Certificate Image / Visual */}
-                                        <div className={`relative ${isActive ? 'w-full md:w-1/2 h-48 md:h-full' : 'w-full h-full'} overflow-hidden`}>
-                                            <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-20`} />
-                                            {/* Pattern Overlay */}
-                                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay" />
-
-                                            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                                                <Award size={isActive ? 80 : 48} className="text-white/80 mb-4 drop-shadow-lg" />
-                                                <h3 className={`font-bold text-white ${isActive ? 'text-2xl' : 'text-lg'}`}>
-                                                    {cert.title}
-                                                </h3>
-                                                {!isActive && <p className="text-slate-300 text-sm mt-2">{cert.issuer}</p>}
-                                            </div>
-                                        </div>
-
-                                        {/* Right Side: Details (Only Visible when Active) */}
-                                        {isActive && (
-                                            <div className="w-full md:w-1/2 p-8 flex flex-col justify-center bg-slate-900/95 backdrop-blur-md">
-                                                <div className="mb-6">
-                                                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
-                                                        {cert.date}
-                                                    </span>
-                                                </div>
-
-                                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                                                    {cert.title}
-                                                </h3>
-                                                <p className="text-purple-400 font-medium mb-4 text-lg">
-                                                    {cert.issuer}
-                                                </p>
-
-                                                <p className="text-slate-400 leading-relaxed mb-8">
-                                                    {cert.description}
-                                                </p>
-
-                                                <a
-                                                    href={cert.link}
-                                                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-lg font-bold hover:bg-slate-200 transition-colors w-full md:w-auto"
-                                                >
-                                                    Verify Certificate
-                                                    <ExternalLink size={18} />
-                                                </a>
-                                            </div>
-                                        )}
-                                    </motion.div>
-                                );
-                            })}
-                        </AnimatePresence>
-                    </div>
-                </div>
-
-                {/* Mobile Scroll Indicator */}
-                <div className="flex gap-2 justify-center mt-8 md:hidden">
-                    {certifications.map((_, idx) => (
-                        <div
-                            key={idx}
-                            className={`w-2 h-2 rounded-full transition-colors ${idx === activeIndex ? 'bg-purple-500' : 'bg-slate-700'}`}
-                        />
+                            {/* Hover Overlay Text */}
+                            <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+                                <span className="text-white font-medium px-4 py-2 border border-white/30 rounded-full">
+                                    View Details
+                                </span>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
-
             </div>
+
+            {/* Modal Overlay */}
+            <AnimatePresence>
+                {selectedCert && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedCert(null)}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            onClick={(e) => e.stopPropagation()} // Prevent close on modal click
+                            className="bg-slate-900/90 border border-slate-700/50 w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] md:h-auto"
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setSelectedCert(null)}
+                                className="absolute top-4 right-4 z-10 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full transition-colors"
+                            >
+                                <X size={24} />
+                            </button>
+
+                            {/* Left: Certificate Visual */}
+                            <div className="w-full md:w-1/2 bg-white relative p-12 flex items-center justify-center min-h-[300px]">
+                                <div className={`absolute inset-0 bg-gradient-to-br ${selectedCert.color} opacity-10`} />
+                                <div className="text-center relative z-10">
+                                    <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${selectedCert.color} flex items-center justify-center mb-6 text-white shadow-xl`}>
+                                        <Award size={48} />
+                                    </div>
+                                    <h2 className="text-3xl font-serif text-slate-800 tracking-wide">CERTIFICATE</h2>
+                                    <p className="text-slate-500 font-medium mt-2">OF COMPLETION</p>
+                                    <div className="w-16 h-1 bg-slate-300 mx-auto my-6" />
+                                    <p className="text-slate-900 font-bold text-xl">{selectedCert.title}</p>
+                                </div>
+                            </div>
+
+                            {/* Right: Details */}
+                            <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-slate-900/50">
+                                <div className="mb-6">
+                                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                                        ISSUED {selectedCert.date}
+                                    </span>
+                                </div>
+
+                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{selectedCert.title}</h3>
+                                <p className="text-lg text-purple-400 font-medium mb-6">{selectedCert.issuer}</p>
+
+                                <p className="text-slate-400 leading-relaxed mb-8 text-base">
+                                    {selectedCert.description}
+                                </p>
+
+                                <div className="mt-auto">
+                                    <a
+                                        href={selectedCert.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-white hover:bg-slate-200 text-slate-900 font-bold rounded-xl transition-all shadow-lg active:scale-[0.98]"
+                                    >
+                                        Verify Certificate
+                                        <ExternalLink size={18} />
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

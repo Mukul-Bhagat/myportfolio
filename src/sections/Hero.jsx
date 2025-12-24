@@ -109,7 +109,7 @@ export default function Hero() {
                     <div className="flex flex-col items-start justify-center space-y-8 z-20">
                         {/* Logo above name */}
                         <a href="/" className="block">
-                            <img src={logo} alt="Logo" className="w-24 lg:w-28 object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                            <img src={logo} alt="Logo" className="w-10 lg:w-10 top-10 object-contain opacity-90 hover:opacity-100 transition-opacity" />
                         </a>
 
                         <motion.div
