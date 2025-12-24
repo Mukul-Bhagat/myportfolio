@@ -47,6 +47,16 @@ export default {
                         'background-position': 'right center'
                     },
                 },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-6px)' },
+                },
+            },
+            animation: {
+                blob: "blob 7s infinite",
+                'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'gradient-x': 'gradient-x 15s ease infinite',
+                float: 'float 4s ease-in-out infinite',
             },
         },
     },

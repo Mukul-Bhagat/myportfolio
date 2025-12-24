@@ -1,0 +1,22 @@
+{
+  "SiReact": true,
+  "SiNodedotjs": true,
+  "SiMongodb": true,
+  "SiDocker": true,
+  "SiKubernetes": true,
+  "SiGithub": true,
+  "SiLinux": true,
+  "SiJenkins": true,
+  "SiGit": true,
+  "SiFirebase": true,
+  "SiMysql": true,
+  "SiShopify": true,
+  "SiJavascript": true,
+  "SiTypescript": true,
+  "SiHtml5": true,
+  "SiCss3": true,
+  "SiKotlin": true,
+  "SiPython": true,
+  "SiJava": false,
+  "SiCplusplus": true
+}
