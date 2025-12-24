@@ -7,16 +7,31 @@ const projects = [
         title: "TaskMate – Full-Stack MERN Application",
         description: "Dual-role system with admin and member dashboards, task tracking, permissions, and secure authentication.",
         tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop", // Task/Productivity
     },
     {
         title: "AI-Powered Q&A System (RAG)",
         description: "Chat with PDF documents to get instant, context-aware answers using retrieval-augmented generation.",
         tech: ["LangChain", "Ollama", "Streamlit", "Vector Database"],
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop", // AI/Brain
     },
     {
         title: "Kotlin Banking Application",
         description: "Secure banking app with account management, transaction history, and fund transfers.",
         tech: ["Kotlin", "Jetpack Compose", "SQLite"],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop", // Finance/Mobile
+    },
+    {
+        title: "AttendMark - Smart Attendance System",
+        description: "Automated attendance tracking system with smart logging, student management, and real-time reporting capabilities.",
+        tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop", // Classroom/Tech
+    },
+    {
+        title: "Gulheri – Client E-Commerce Store",
+        description: "A premium client-side e-commerce platform built on Shopify, featuring custom theme customization and seamless shopping experience.",
+        tech: ["Shopify", "Liquid", "E-Commerce", "Web Design"],
+        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", // Shopping/Store
     }
 ]
 
@@ -25,7 +40,7 @@ export default function Projects() {
         <section id="projects" className="py-24 bg-slate-950">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="text-center mb-24">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Featured Projects</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600">Featured Projects</h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
                         Some of my best work, built with modern tech stacks.
                     </p>
@@ -43,12 +58,13 @@ export default function Projects() {
                         >
                             {/* Image / Preview Section */}
                             <div className="h-64 md:h-auto bg-slate-800 relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-blue-900/20" />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-slate-700 group-hover:text-purple-400/50 transition-colors uppercase tracking-widest">
-                                        Project Preview
-                                    </span>
-                                </div>
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 to-blue-900/40 opacity-60 group-hover:opacity-40 transition-opacity" />
+
                                 {/* Hover Effect Overlay */}
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                             </div>

@@ -4,7 +4,7 @@ import travelPic from '../assets/travelpic.jpg'
 
 export default function About() {
     return (
-        <section id="about" className="py-20 relative">
+        <section id="about" className="pt-20 pb-0 mb-0 relative">
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -52,7 +52,7 @@ export default function About() {
                         />
                     </div>
 
-                    <div className="mt-8">
+                    <div className="mt-8 flex flex-col items-center gap-10">
                         <a
                             href="https://www.instagram.com/mukulbhagat_/"
                             target="_blank"
@@ -61,6 +61,29 @@ export default function About() {
                         >
                             Follow My Journey on Instagram
                         </a>
+
+                        {/* Scroll Down Indicator */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 1 }}
+                            className="flex flex-col items-center gap-2"
+                        >
+                            <div className="w-[30px] h-[50px] rounded-full border-2 border-slate-700/50 flex justify-center p-2 relative backdrop-blur-sm bg-slate-900/30">
+                                <motion.div
+                                    animate={{
+                                        y: [0, 16, 0],
+                                        opacity: [1, 0.5, 1]
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                    }}
+                                    className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"
+                                />
+                            </div>
+                        </motion.div>
                     </div>
                 </motion.div>
             </div>
