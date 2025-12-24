@@ -53,7 +53,7 @@ export default function Hero() {
 
                 {/* 4. ROLE */}
                 <p className="text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 text-center mb-8">
-                    Mobile App Developer | Cloud & DevOps Trainee
+                    Full Stack Developer | Cloud & DevOps Trainee
                 </p>
 
                 {/* 5. IMAGE (Centered) */}
@@ -62,7 +62,8 @@ export default function Hero() {
                     <img
                         src={profilePic}
                         alt="Mukul S. Bhagat"
-                        className="w-full h-auto object-contain drop-shadow-xl"
+                        className="w-full h-auto object-contain"
+                        style={{ filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
                     />
                 </div>
 
@@ -72,11 +73,11 @@ export default function Hero() {
                 </p>
 
                 {/* 7. BUTTONS */}
-                <div className="flex flex-col w-full gap-4">
-                    <a href="#projects" className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium shadow-lg text-center">
+                <div className="flex flex-row w-full justify-center gap-4">
+                    <a href="#projects" className="flex-1 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-medium shadow-lg text-center hover:opacity-90 active:scale-95 transition-all">
                         View Projects
                     </a>
-                    <a href="#contact" className="w-full py-4 rounded-xl border border-slate-700 text-slate-300 font-medium text-center">
+                    <a href="#contact" className="flex-1 py-3 rounded-lg border border-slate-700 text-slate-300 text-sm font-medium text-center hover:bg-white/5 active:scale-95 transition-all">
                         Get In Touch
                     </a>
                 </div>
@@ -123,18 +124,18 @@ export default function Hero() {
                             </h1>
 
                             <h2 className="text-2xl lg:text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 tracking-wide">
-                                Mobile App Developer | Cloud & DevOps Trainee
+                                Full Stack Developer | Cloud & DevOps Trainee
                             </h2>
 
                             <p className="text-slate-400 font-light text-lg lg:text-xl max-w-xl leading-relaxed">
                                 An aspiring software developer with hands-on experience in mobile applications, full-stack web development, and cloud-native systems. I focus on building scalable, clean, and efficient solutions with a strong emphasis on performance.
                             </p>
 
-                            <div className="flex gap-6 pt-4 pb-4">
-                                <a href="#projects" className="px-8 lg:px-10 py-3 lg:py-4 rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 text-white text-base lg:text-lg font-medium shadow-xl hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300">
+                            <div className="flex flex-row gap-4 pt-4">
+                                <a href="#projects" className="px-8 py-3 rounded-lg bg-gradient-to-r from-purple-700 to-indigo-700 text-white text-base font-medium shadow-md hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300">
                                     View Projects
                                 </a>
-                                <a href="#contact" className="px-8 lg:px-10 py-3 lg:py-4 rounded-full border border-slate-700 text-slate-300 text-base lg:text-lg font-light hover:bg-white/5 hover:border-slate-500 hover:text-white transition-all duration-300">
+                                <a href="#contact" className="px-8 py-3 rounded-lg border border-slate-700 text-slate-300 text-base font-medium hover:bg-white/5 hover:border-slate-500 hover:text-white transition-all duration-300">
                                     Get In Touch
                                 </a>
                             </div>
@@ -143,22 +144,46 @@ export default function Hero() {
 
                     {/* RIGHT COLUMN */}
                     <div className="flex items-center justify-center relative z-10 w-full h-full min-h-[500px]">
-                        {/* Background Glow */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-gradient-to-t from-purple-900/20 to-transparent rounded-full blur-[90px] pointer-events-none" />
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="relative w-full max-w-[500px] lg:max-w-[650px]"
+                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}
+                            className="relative w-full max-w-[500px] lg:max-w-[650px] flex flex-col items-center group"
                         >
+                            {/* PURPLE GRADIENT SPOTLIGHT */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-br from-purple-600/30 via-indigo-600/20 to-violet-600/10 rounded-full blur-[80px] -z-10"
+                            />
+
                             <img
                                 src={profilePic}
                                 alt="Mukul S. Bhagat"
-                                className="w-full h-auto object-contain drop-shadow-2xl"
+                                className="w-full h-auto object-contain z-10 relative"
                                 style={{
-                                    filter: "drop-shadow(0 0 40px rgba(0,0,0,0.4))"
+                                    filter: "grayscale(100%) contrast(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
+                                    width: '600px',
+                                    maxWidth: 'none'
                                 }}
+                            />
+
+                            {/* GROUNDING BASE SHADOW */}
+                            <motion.div
+                                initial={{ opacity: 0, scaleX: 0.5 }}
+                                animate={{ opacity: 1, scaleX: 1 }}
+                                transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                                className="absolute -bottom-4 w-[80%] h-16 bg-purple-900/40 blur-[40px] rounded-[100%] -z-10"
+                            />
+
+                            {/* SUBTLE PLATFORM SURFACE */}
+                            <motion.div
+                                initial={{ opacity: 0, scaleX: 0.8 }}
+                                animate={{ opacity: 0.6, scaleX: 1 }}
+                                transition={{ duration: 1.8, ease: "easeOut", delay: 0.1 }}
+                                className="absolute -bottom-1 w-[110%] h-[1px] bg-gradient-to-r from-transparent via-purple-400/30 to-transparent"
                             />
                         </motion.div>
                     </div>

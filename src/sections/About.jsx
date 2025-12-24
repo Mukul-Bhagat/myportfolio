@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Code, Terminal, Cpu } from 'lucide-react'
+import travelPic from '../assets/travelpic.jpg'
 
 export default function About() {
     return (
@@ -12,10 +13,12 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                     className="relative"
                 >
-                    <div className="aspect-square rounded-2xl overflow-hidden bg-slate-800 relative z-10 flex items-center justify-center border border-slate-700">
-                        {/* Image Placeholder */}
-                        <Terminal size={64} className="text-slate-600" />
-                        <p className="absolute bottom-4 text-slate-500 text-sm">Profile Image Placeholder</p>
+                    <div className="aspect-square rounded-2xl overflow-hidden bg-slate-800 relative z-10 border border-slate-700">
+                        <img
+                            src={travelPic}
+                            alt="Mukul Travelling"
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
                     </div>
                     {/* Decorative background element */}
                     <div className="absolute top-4 -left-4 w-full h-full border-2 border-purple-500/30 rounded-2xl -z-0" />
@@ -33,24 +36,22 @@ export default function About() {
                     </h2>
                     <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
                         <p>
-                            An aspiring Software Developer with hands-on experience in Full-Stack Web applications, Native Mobile Apps, and AI-powered solutions.
+                            An aspiring Software Developer with hands-on experience in  <strong className="text-purple-400"> Full-Stack Web applications, Native Mobile Apps, AI-powered solutions</strong> and modern <strong className="text-purple-400">DevOps</strong> tools.
                         </p>
                         <p>
-                            Skilled in <strong className="text-purple-400">Java, Python, JavaScript, Kotlin</strong>, and modern DevOps tools. I enjoy building scalable systems from concept to deployment and bring a creative, problem-solving mindset to every project.
+                            When I’m not debugging or designing architectures, you can find me traveling to new places or focusing on fitness. I approach every project with the same energy I bring to my workouts and adventures: with discipline, creativity, and a drive to constantly improve.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 mt-8">
-                        {[
-                            { label: 'Projects', value: '10+' },
-                            { label: 'Experience', value: '2 Yrs' },
-                            { label: 'Certifications', value: '5+' },
-                        ].map((stat, i) => (
-                            <div key={i} className="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
-                                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                                <div className="text-sm text-slate-500">{stat.label}</div>
-                            </div>
-                        ))}
+                    <div className="mt-8">
+                        <a
+                            href="https://www.instagram.com/mukulbhagat_/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium shadow-lg hover:shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all duration-300"
+                        >
+                            Follow My Journey on Instagram
+                        </a>
                     </div>
                 </motion.div>
             </div>
