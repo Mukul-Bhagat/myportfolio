@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight, Github, Linkedin, Instagram, Twitter } from 'lucide-react'
 import logo from '../assets/Logomb.png'
 import profilePic from '../assets/profilepic.png'
-import travelPic from '../assets/travelpic.jpg'
 
 const socialLinks = [
     { icon: Github, href: "https://github.com/Mukul-Bhagat/" },
@@ -12,18 +10,7 @@ const socialLinks = [
     { icon: Twitter, href: "https://twitter.com/yourusername" },
 ]
 
-const profileImages = [profilePic, travelPic];
-
 export default function Hero() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % profileImages.length);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <section className="relative w-full min-h-screen overflow-hidden">
 
@@ -67,22 +54,15 @@ export default function Hero() {
                         Full Stack Developer | Cloud & DevOps Trainee
                     </p>
 
-                    {/* 5. IMAGE (Centered & Animated) */}
-                    <div className="relative w-full max-w-[320px] aspect-[4/5] mb-8 flex items-center justify-center">
+                    {/* 5. IMAGE (Centered) */}
+                    <div className="relative w-full max-w-[320px] mb-8">
                         <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl -z-10" />
-                        <AnimatePresence mode="wait">
-                            <motion.img
-                                key={currentIndex}
-                                src={profileImages[currentIndex]}
-                                alt="Mukul S. Bhagat"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className="w-full h-full object-contain absolute inset-0"
-                                style={{ filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
-                            />
-                        </AnimatePresence>
+                        <img
+                            src={profilePic}
+                            alt="Mukul S. Bhagat"
+                            className="w-full h-auto object-contain"
+                            style={{ filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
+                        />
                     </div>
 
                     {/* 6. DESCRIPTION */}
@@ -168,7 +148,7 @@ export default function Hero() {
                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="relative w-full max-w-[500px] lg:max-w-[650px] flex flex-col items-center group h-[600px] flex justify-center"
+                            className="relative w-full max-w-[500px] lg:max-w-[650px] flex flex-col items-center group"
                         >
                             {/* PURPLE & BLUE GRADIENT SPOTLIGHT */}
                             <motion.div
@@ -186,24 +166,16 @@ export default function Hero() {
                                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[100px] -z-10 mix-blend-screen"
                             />
 
-                            {/* SLIDESHOW IMAGE */}
-                            <AnimatePresence mode="wait">
-                                <motion.img
-                                    key={currentIndex}
-                                    src={profileImages[currentIndex]}
-                                    alt="Mukul S. Bhagat"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                                    className="w-full h-auto max-h-full object-contain z-10 relative"
-                                    style={{
-                                        filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
-                                        width: '600px',
-                                        maxWidth: 'none'
-                                    }}
-                                />
-                            </AnimatePresence>
+                            <img
+                                src={profilePic}
+                                alt="Mukul S. Bhagat"
+                                className="w-full h-auto object-contain z-10 relative"
+                                style={{
+                                    filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",
+                                    width: '600px',
+                                    maxWidth: 'none'
+                                }}
+                            />
 
                             {/* GROUNDING BASE SHADOW */}
                             <motion.div
