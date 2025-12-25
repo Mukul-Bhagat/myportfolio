@@ -101,10 +101,18 @@ export default function Projects() {
                                 </div>
 
                                 <div className="flex flex-row gap-2">
-                                    <a href="#" className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-semibold gap-2 hover:bg-slate-800 hover:text-white hover:border-slate-500 hover:scale-[1.03] transition-all duration-300">
+                                    <a
+                                        href="#"
+                                        onClick={() => window.gtag && window.gtag("event", "click", { event_category: "Project Link", event_label: `Code Button - ${project.title}` })}
+                                        className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-semibold gap-2 hover:bg-slate-800 hover:text-white hover:border-slate-500 hover:scale-[1.03] transition-all duration-300"
+                                    >
                                         <Github size={18} /> Code
                                     </a>
-                                    <a href="#" className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-semibold gap-2 hover:shadow-purple-500/30 hover:brightness-110 hover:scale-[1.03] transition-all duration-300 shadow-lg shadow-purple-500/20">
+                                    <a
+                                        href="#"
+                                        onClick={() => window.gtag && window.gtag("event", "click", { event_category: "Project Link", event_label: `Live Demo Button - ${project.title}` })}
+                                        className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-semibold gap-2 hover:shadow-purple-500/30 hover:brightness-110 hover:scale-[1.03] transition-all duration-300 shadow-lg shadow-purple-500/20"
+                                    >
                                         Live <ExternalLink size={18} />
                                     </a>
                                 </div>

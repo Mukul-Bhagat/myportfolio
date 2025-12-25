@@ -59,7 +59,7 @@ export default function Hero() {
                         <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl -z-10" />
                         <img
                             src={profilePic}
-                            alt="Mukul S. Bhagat"
+                            alt="Mukul Bhagat Full Stack Developer"
                             className="w-full h-auto object-contain"
                             style={{ filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 25px rgba(0,0,0,0.15))" }}
                         />
@@ -72,10 +72,18 @@ export default function Hero() {
 
                     {/* 7. BUTTONS */}
                     <div className="flex flex-row flex-wrap w-full justify-center gap-4">
-                        <a href="#projects" className="inline-flex items-center justify-center w-auto px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium shadow-lg hover:shadow-purple-500/30 text-center hover:opacity-90 active:scale-95 transition-all">
+                        <a
+                            href="#projects"
+                            onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "View Projects Button (Mobile)" })}
+                            className="inline-flex items-center justify-center w-auto px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium shadow-lg hover:shadow-purple-500/30 text-center hover:opacity-90 active:scale-95 transition-all"
+                        >
                             View Projects
                         </a>
-                        <a href="#contact" className="inline-flex items-center justify-center w-auto px-6 py-3 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-medium text-center hover:bg-slate-800 hover:text-white hover:border-slate-500 active:scale-95 transition-all">
+                        <a
+                            href="#contact"
+                            onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "Get In Touch Button (Mobile)" })}
+                            className="inline-flex items-center justify-center w-auto px-6 py-3 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-medium text-center hover:bg-slate-800 hover:text-white hover:border-slate-500 active:scale-95 transition-all"
+                        >
                             Get In Touch
                         </a>
                     </div>
@@ -131,10 +139,18 @@ export default function Hero() {
                             </p>
 
                             <div className="flex flex-row gap-4 pt-4">
-                                <a href="#projects" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium shadow-md hover:shadow-purple-500/30 hover:scale-[1.02] transition-all duration-300">
+                                <a
+                                    href="#projects"
+                                    onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "View Projects Button (Desktop)" })}
+                                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium shadow-md hover:shadow-purple-500/30 hover:scale-[1.02] transition-all duration-300"
+                                >
                                     View Projects
                                 </a>
-                                <a href="#contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-medium hover:bg-slate-800 hover:text-white hover:border-slate-500 transition-all duration-300">
+                                <a
+                                    href="#contact"
+                                    onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "Get In Touch Button (Desktop)" })}
+                                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-medium hover:bg-slate-800 hover:text-white hover:border-slate-500 transition-all duration-300"
+                                >
                                     Get In Touch
                                 </a>
                             </div>
@@ -168,7 +184,7 @@ export default function Hero() {
 
                             <img
                                 src={profilePic}
-                                alt="Mukul S. Bhagat"
+                                alt="Mukul Bhagat Full Stack Developer"
                                 className="w-full h-auto object-contain z-10 relative"
                                 style={{
                                     filter: "saturate(85%) contrast(110%) brightness(105%) drop-shadow(0 20px 40px rgba(0,0,0,0.4))",

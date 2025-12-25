@@ -14,9 +14,6 @@ function App() {
         <div className="min-h-screen text-slate-100 font-sans selection:bg-purple-500 selection:text-white relative">
             <Helmet>
                 <title>Mukul Bhagat | Full Stack Developer | Cloud & DevOps Trainee</title>
-                <meta name="description" content="Portfolio of Mukul Bhagat, a Full Stack Developer and Cloud & DevOps trainee from Nashik, India. Skilled in MERN stack, mobile apps, and modern cloud-native solutions." />
-                <meta name="keywords" content="Mukul Bhagat, Mukul Bhagat Portfolio, Software Developer Nashik, MERN Stack Developer, React Developer India" />
-                <link rel="canonical" href="https://mukulbhagat.onrender.com/" />
 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
