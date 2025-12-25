@@ -7,7 +7,7 @@ const socialLinks = [
     { icon: Github, href: "https://github.com/Mukul-Bhagat/" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/mukul-bhagat/" },
     { icon: Instagram, href: "https://www.instagram.com/mukulbhagat_/" },
-    { icon: Twitter, href: "https://twitter.com/yourusername" },
+    { icon: Twitter, href: "https://x.com/mukul_bhagat_" },
 ]
 
 export default function Hero() {
@@ -74,6 +74,7 @@ export default function Hero() {
                     <div className="flex flex-row flex-wrap w-full justify-center gap-4">
                         <a
                             href="#projects"
+                            aria-label="View Projects Section"
                             onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "View Projects Button (Mobile)" })}
                             className="inline-flex items-center justify-center w-auto px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium shadow-lg hover:shadow-purple-500/30 text-center hover:opacity-90 active:scale-95 transition-all"
                         >
@@ -81,6 +82,7 @@ export default function Hero() {
                         </a>
                         <a
                             href="#contact"
+                            aria-label="Contact Section"
                             onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "Get In Touch Button (Mobile)" })}
                             className="inline-flex items-center justify-center w-auto px-6 py-3 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-medium text-center hover:bg-slate-800 hover:text-white hover:border-slate-500 active:scale-95 transition-all"
                         >
@@ -141,6 +143,7 @@ export default function Hero() {
                             <div className="flex flex-row gap-4 pt-4">
                                 <a
                                     href="#projects"
+                                    aria-label="View Projects Section"
                                     onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "View Projects Button (Desktop)" })}
                                     className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium shadow-md hover:shadow-purple-500/30 hover:scale-[1.02] transition-all duration-300"
                                 >
@@ -148,6 +151,7 @@ export default function Hero() {
                                 </a>
                                 <a
                                     href="#contact"
+                                    aria-label="Contact Section"
                                     onClick={() => window.gtag && window.gtag("event", "click", { event_category: "CTA", event_label: "Get In Touch Button (Desktop)" })}
                                     className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-slate-900/50 border border-slate-700/50 text-slate-300 text-sm font-medium hover:bg-slate-800 hover:text-white hover:border-slate-500 transition-all duration-300"
                                 >

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Instagram, Mail } from 'lucide-react'
+import { Github, Linkedin, Instagram, Mail, Twitter } from 'lucide-react'
 
 export default function Footer() {
     return (
@@ -11,8 +11,11 @@ export default function Footer() {
                     <a href="#" className="text-slate-400 hover:text-purple-500 transition-colors transform hover:scale-110">
                         <Linkedin size={24} />
                     </a>
-                    <a href="#" className="text-slate-400 hover:text-purple-500 transition-colors transform hover:scale-110">
+                    <a href="https://www.instagram.com/mukulbhagat_/" className="text-slate-400 hover:text-purple-500 transition-colors transform hover:scale-110">
                         <Instagram size={24} />
+                    </a>
+                    <a href="https://x.com/mukul_bhagat_" className="text-slate-400 hover:text-purple-500 transition-colors transform hover:scale-110">
+                        <Twitter size={24} />
                     </a>
                     <a href="mailto:contact@example.com" className="text-slate-400 hover:text-purple-500 transition-colors transform hover:scale-110">
                         <Mail size={24} />

@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Skills from './sections/Skills'
@@ -12,23 +11,6 @@ import SectionDivider from './components/SectionDivider'
 function App() {
     return (
         <div className="min-h-screen text-slate-100 font-sans selection:bg-purple-500 selection:text-white relative">
-            <Helmet>
-                <title>Mukul Bhagat | Full Stack Developer | Cloud & DevOps Trainee</title>
-
-                {/* Open Graph / Facebook */}
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://mukulbhagat.onrender.com/" />
-                <meta property="og:title" content="Mukul Bhagat – Developer Portfolio" />
-                <meta property="og:description" content="Full Stack Developer specializing in MERN, Mobile Apps, and Cloud & DevOps." />
-                <meta property="og:image" content="https://mukulbhagat.onrender.com/og-image.png" />
-
-                {/* Twitter */}
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://mukulbhagat.onrender.com/" />
-                <meta property="twitter:title" content="Mukul Bhagat – Developer Portfolio" />
-                <meta property="twitter:description" content="Full Stack Developer specializing in MERN, Mobile Apps, and Cloud & DevOps." />
-                <meta property="twitter:image" content="https://mukulbhagat.onrender.com/og-image.png" />
-            </Helmet>
 
             {/* FIXED BACKGROUND */}
             <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
@@ -71,7 +53,7 @@ function App() {
                 <Contact />
             </main>
             <Footer />
-        </div>
+        </div >
     )
 }
 

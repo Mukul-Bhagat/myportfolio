@@ -75,6 +75,7 @@ export default function Projects() {
                                 <img
                                     src={project.image}
                                     alt={project.title}
+                                    loading="lazy"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 to-blue-900/40 opacity-60 group-hover:opacity-40 transition-opacity" />
